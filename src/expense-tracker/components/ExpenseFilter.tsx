@@ -2,17 +2,20 @@ import React from "react";
 
 interface Props {
   onSelectCategory: (category: string) => void;
+  categories: string[];
 }
-const ExpenseFilter = ({ onSelectCategory }: Props) => {
+const ExpenseFilter = ({ onSelectCategory, categories }: Props) => {
   return (
     <select
       className="form-select"
       onChange={(event) => onSelectCategory(event.target.value)}
     >
       <option value="">All categories</option>
-      <option value="Food">Food</option>
-      <option value="Drink">Drink</option>
-      <option value="Utility">Utility</option>
+      {categories.map((category) => (
+        <option key={category} value={category}>
+          {category}
+        </option>
+      ))}
     </select>
   );
 };

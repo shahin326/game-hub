@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { categories } from "../../App";
 
 const Form = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -35,9 +36,11 @@ const Form = () => {
           <option value="" disabled>
             Select an option
           </option>
-          <option value="Option 1">Option 1</option>
-          <option value="Option 2">Option 2</option>
-          <option value="Option 3">Option 3</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </select>
       </div>
 
