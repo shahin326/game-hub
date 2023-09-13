@@ -9,6 +9,7 @@ import ExpandableText from "./components/ExpandableText";
 import Form from "./expense-tracker/components/Form";
 import ExpenseList from "./expense-tracker/components/ExpenseList";
 import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
+import categories from "./Categories";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(""); // we need to this to cause rerender
@@ -24,8 +25,10 @@ function App() {
 
   return (
     <div>
+      <Form></Form>
       <div className="mb-3">
         <ExpenseFilter
+          categories={categories}
           onSelectCategory={(category) => setSelectedCategory(category)}
         ></ExpenseFilter>
       </div>
